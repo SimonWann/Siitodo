@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>todo</title>
+    <link rel="icon" href="http://167.179.83.167:3000/public/img/123.png" sizes="32x32">
+    <link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      h1{
+        font-family: Arial, Helvetica, sans-serif;
+        color:#c21f30;
+        font-size: 100px;
+        font-weight: 700;
+        margin:0px auto;
+        width:270px;
+        opacity:0.8;
+        padding-bottom: 50px;
+        
+      }
+      body{
+        background-color: #fffefa;
+        background:  url(http://167.179.83.167:3000/public/img/12.png) repeat ;
+        background-size: 150px 150px ;
+      }
+      ul{
+        list-style: none;
+      }
+      #box{
+        width:1100px;
+        margin:0px auto;
+        padding:0px;
+        /* box-shadow:-2px 0px 6px gainsboro,0px 0px 0px gainsboro,2px 0px 6px gainsboro,0px 0px 0px gainsboro; */
+        box-shadow: 1px 2px 4px #9aa89e,-1px 2px 4px #9aa89e;
+        background-color: #fff;
+        border-radius: 0.3em;
+      }
+      input{
+        width: 1100px;
+        height: 70px;
+        font-size: 35px;
+        border:1px solid gainsboro;
+        margin: 0px;
+        padding:0px;
+        /* box-shadow:-2px 0px 6px gainsboro,0px 0px 0px gainsboro,2px 0px 6px gainsboro,0px 0px 0px gainsboro; */
+        padding-left: 83px;
+      }
+      ::placeholder{
+        color: #e4dfd7;
+        position: relative;
+        left:-13px;
+        
+      }
+      #preference div{
+        display: inline-block;
+        color: #685e48;
+        text-align: left;
+        line-height: 42px;
+      }
+      #preference{
+        margin-top:70px;
+        margin-left:30px;
+        height:50px;
+      }
+      #btn1{
+        margin-left: 120px;
+      }
+      a{
+        text-decoration: none;
+        color:#685e48
+      }
+      a:hover,a:visited,a:active{
+        text-decoration: none;
+        color:#685e48
+      }
+      a:hover{
+        color:#c21f30;
+        opacity: 0.8;
+      }
+      li{
+        height:50px;
+        font-size:35px;
+        
+      }
+      li span{
+        margin-left:16px;
+        
+      }
+      li i{
+        margin-left:-10px;
+        color:white;
+      }
+      liDone{
+        text-decoration:line-through;
+      }
+      iunDone{
+        color:white;
+      }
+      li i:hover{
+        box-shadow: 1px 1px 4px gainsboro;
+      }
+      #user{
+        height: 60px;
+        width:1100px;
+        
+      }
+      #user button{
+        
+        position: relative;
+        left:913px;
+        margin-left: 5px;
+      }
+      #num{
+        font-weight: 700;
+        font-size: large;
+        color: #e6a4a8;
+      }
+      #userInfo{
+        
+        width:1100px;
+        height:70px;
+        margin:30px auto;
+        padding:0px;
+        padding-top:17px;
+        box-shadow: 1px 2px 4px #9aa89e,-1px 2px 4px #9aa89e;
+        /* box-shadow:-2px 0px 6px gainsboro,0px 0px 0px gainsboro,2px 0px 6px gainsboro,0px 0px 0px gainsboro; */
+        background-color: #fff;
+        border-radius: 0.3em;
+      }
+      #user p{
+        display: inline-block;
+        width: 300px;
+        padding-left:25px;
+      }
+      #loginUp {
+        
+        width:1100px;
+        margin:0px auto;
+        padding:30px 0px;
+        box-shadow: 1px 2px 4px #9aa89e,-1px 2px 4px #9aa89e;
+        /* box-shadow:-2px 0px 6px gainsboro,0px 0px 0px gainsboro,2px 0px 6px gainsboro,0px 0px 0px gainsboro; */
+        background-color: #fff;
+        border-radius: 0.3em;
+      }
+      #loginUp div{
+        display: block;
+        padding:5px 37px;
+      }
+      #loginUp div input{
+        
+        margin-left:20px;
+      }
+      #loginUp div input::placeholder{
+        padding-left: 10px;
+        
+      }
+      #loginUp button{
+        margin-left:33px;
+      }
+      .create{
+        display: none;
+      }
+      .alert-danger{
+        margin-top: 10px;
+        margin-bottom: 5px;
+        display: inline-block;
+        width: 300px;
+      }
+      .alert-success{
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-left:30px;
+        display: block;
+        width: 200px;
+      }
+      #loginIn{
+        display:none;
+        width:1100px;
+        margin:0px auto;
+        padding:30px 30px;
+        margin-top: 30px;
+        box-shadow: 1px 2px 4px #9aa89e,-1px 2px 4px #9aa89e;
+        /* box-shadow:-2px 0px 6px gainsboro,0px 0px 0px gainsboro,2px 0px 6px gainsboro,0px 0px 0px gainsboro; */
+        background-color: #fff;
+        border-radius: 0.3em;
+      }
+      #containerU{
+        margin-left: 30px;
+        margin-top: 7px;
+      }
+      .failS{
+        margin-left:30px;
+      }
+    </style>
+  </head>
+  <body class="container">
+    <h1>todos</h1>
+    <div id="box">
+      <form action="">
+        <input id="search" type="text" placeholder=" 在这里写" name="text">
+      </form>
+      <ul id="content">
+        
+      </ul>
+      <div id="preference" class="row">
+        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3">
+          <span id="num">0 items left</span>
+          <button id="btn1" class="btn btn-primary">All</button>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2"><a href="#" id="active">待完成事项</a></div>
+        <div class="col-xs-5 col-sm-5 col-lg-5 col-md-5"><a href="#" id="completed">已处理事项</a></div>
+        <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2"><a href="#" id="clear">清除已处理事项</a></div>
+      </div>
+      
+    </div>
+    <div id="userInfo">
+      
+      <div id="user" class="container">
+        <button id="login" type="button" class="btn btn-success">登入</button>
+        <button id="create" type="button" class="btn btn-info">注册</button>
+      </div>
+    </div>
+
+
+    <div id="loginUp">
+      <form class="form-inline create">
+        <div class="form-group">
+          <label for="username">用户名：</label>&nbsp&nbsp&nbsp&nbsp
+          <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+        </div>
+        <div class="form-group">
+          <label for="passwd">密码：</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="password" class="form-control" id="passwd" name="passwd" placeholder="密码">
+          
+        </div>
+        <div class="form-group">
+          <label for="passwdConfirm">确认密码：</label>
+          <input type="password" class="form-control" id="passwdConfirm" name="passwdConfirm" placeholder="确认密码">
+        </div>
+        <div class="form-group">
+          <label for="email">Email：</label>&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="email" class="form-control" id="email" name="email" placeholder="邮箱">
+        </div>
+        <button id='submit' type="submit" class="btn btn-info">注册</button>
+      </form>
+    </div>
+    <div id="loginIn">
+      <form id="loginInn"> 
+        <div class="form-group">
+          <label for="loginName">用户名</label>
+          <input type="text" class="form-control" name="loginName" id="loginName" placeholder=" &nbsp&nbsp&nbsp用户名">
+        </div>
+        <div class="form-group">
+          <label for="loginPasswd">密码</label>
+          <input type="password" class="form-control" name="loginPasswd" id="loginPasswd" placeholder=" &nbsp&nbsp&nbsp密码">
+        </div>
+        
+        <button id="isLogin" type="button" class="btn btn-info">确认登陆</button>
+      </form>
+    </div>
+    
+
+    <script src="http://167.179.83.167:3000/public/js/template-web.js"></script>
+    <script id="tp1" type="text/html">
+        <div id="containerU" class="container">
+          <p>你好，<span id="username1" class="label label-info">{{name}}</span</p>
+        </div>
+    </script>
+    <script src="http://167.179.83.167:3000/public/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var i =0;
+        var a=0;
+        var b=0;
+        var ind = $('#box li').length;
+        $('#num').html('事项：'+ind);
+        i = $('#search').on('keypress',function(event){
+          if(event.keyCode ===13){
+            event.preventDefault();
+            // $('#search').on('keyup',function(event){
+              if(event.keyCode === 13){
+                // console.log(event);
+                event.preventDefault();
+                if($('input').val() ===''){
+                  alert('请输入正经内容');
+                  return;
+                }
+                var list = $('#search').val();
+                var username = $('#username1').html();
+                username = username.trim();
+                 
+                console.log("\""+username+"\"");
+                $.ajax({
+                  method:'post',
+                  url:'/submit',
+                  data:{list:list,username:username},
+                  success:function(data){
+                    
+                    console.log(data);
+                    ind = $('#box li').length;
+                    for(var i=ind-1;i<data.length;i++){
+                       
+                      $('#content').append('<li class="active"><i class="fa fa-check" aria-hidden="true" style="color:white"></i><span>'+data[i]+'</span></li>');
+                    }
+                    
+                    ind = $('#box li').length;
+                    $('#num').html('事项：'+ind);
+                    // $('li i').on('click',function(){
+                    //   console.log(a++);
+                    //   if($(this).css('color') === 'rgb(255, 255, 255)'){
+                    //     $(this).css({'color':'black'});
+                    //     $(this).parent().children('span').css({'text-decoration':'line-through'});
+                    //   }else{
+                    //     $(this).css({'color':'white'});
+                    //     $(this).parent().children('span').css({'text-decoration':'none'});
+                    //   }
+                    // });
+                  }
+                });
+              } 
+            // });
+           
+          }
+
+        });
+        
+      
+      $('ul').on('click','li i',function(){
+                  console.log(b++ + "=b");
+                  if($(this).css('color') === 'rgb(255, 255, 255)'){
+                    $(this).css({'color':'black'});
+                    $(this).parent().children('span').css({'text-decoration':'line-through'});
+                    $(this).parent().attr('class','completed');
+                  }else{
+                    $(this).css({'color':'white'});
+                    $(this).parent().children('span').css({'text-decoration':'none'});
+                    $(this).parent().attr('class','active');
+                  }
+      });
+      $('#btn1').on('click',function(){
+        console.log('all');
+        $('li').css('display','block')
+      });
+      $('#active').on('click',function(){
+        console.log('active');
+        $('.active').css('display','block');
+        $('.completed').css('display','none');
+      });
+      $('#completed').on('click',function(){
+        console.log('completed');
+        $('.completed').css('display','block');
+        $('.active').css('display','none');
+      });
+      $('#clear').on('click',function(){
+        console.log('clear');
+        var username = $('#username1').html();
+        username = username.trim();
+        var index = [];
+        $('.completed').each(function(i){
+          index.push($(this).index());
+        });
+        console.log('index = '+ index);
+        var clearC = {
+          username:username,
+          index:index
+        }
+        $.ajax({
+          type:'post',
+          url:'http://167.179.83.167:3000/clearDone',
+          data:clearC,
+          success:function(data){
+            $('.completed').remove();
+          }
+        })
+        
+      })
+
+      $('#create').on('click',function(){
+        // $('.create').css('display','block');
+        $('.create').slideToggle('fast');
+      });
+      $('#submit').on('click',function(event){
+        event.preventDefault();
+        
+        if(!($('#passwd').val() === $('#passwdConfirm').val())){
+          console.log($('#passwd').val());
+          console.log($('#passwdConfirm').val());
+          $('#passwd').after('<div class="alert alert-danger" role="alert">两次密码不一致。</div>')
+          // alert('两次密码不一致。')
+          return;
+        }
+        $('.alert-danger').remove();
+        var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+        if(!reg.test($('#email').val())){
+          $('#email').after('<div class="alert alert-danger" role="alert">请填写正确的邮箱。</div>')
+          return;
+        }
+        $('.alert-danger').remove();
+        $('.alert-success').remove();
+        if($('#username').val().length < 3){
+          $('#username').after('<div class="alert alert-danger" role="alert">用户名需要超过三个字符。</div>')
+          return;
+        }
+        $('.alert-danger').remove();
+        var formdata = new FormData($('.create')[0]);
+        $.ajax({
+          url:'/loginUp',
+          type:'post',
+          data:formdata,
+          processData: false,
+          contentType: false,
+          success:function(data){
+            if(data ==='fail'){
+              console.log('fail:' + data);
+              $('#submit').after('<div class="alert alert-danger failS" role="alert">注册失败,用户名已存在～</div>');
+            } else {
+              console.log('success:'+data);
+              $('#submit').after('<div class="alert alert-success" role="alert">注册成功～</div>')
+            // $(this).html('<div class="alert alert-success" role="alert">...</div>');
+            // $('.create').slideToggle('fast');
+            }
+            
+          }
+        });
+        console.log(formdata.get('username'));
+      });
+
+      //登录功能
+      $('#login').on('click',function(){
+        $('#loginIn').slideToggle('fast');
+      });
+      $('#isLogin').on('click',function(){
+        var formDataL = new FormData($('#loginInn')[0]);
+        $.ajax({
+          url:'/loginIn',
+          type:'post',
+          data:formDataL,
+          processData:false,
+          contentType:false,
+          success:function(data){
+            console.log(data);
+            if(data !== 'fail'){
+              $('#isLogin').after('<div class="alert alert-success" role="alert">登陆成功～</div>');
+              var html1 = template('tp1',{
+                name:$('#loginName').val()
+              });
+              $('#user').css('display','none');
+              console.log('userInfo长度'+$('#userInfo').length);
+              if($('#userInfo').length<2){
+                $('#userInfo').append(html1);
+              }
+              if(data.content !== undefined){
+                for(var i=0;i<data.content.length;i++){ 
+                    $('#content').append('<li class="active"><i class="fa fa-check" aria-hidden="true" style="color:white"></i><span>'+data.content[i]+'</span></li>');
+                    }
+              }
+              $('#loginIn,#loginUp').css('display','none');
+            } else {
+              $('#isLogin').after('<div class="alert alert-danger" role="alert">登陆失败～</div>');
+            }
+            
+          }
+        })
+      });
+      
+      console.log(ind);
+    </script>
+  </body>
+</html>
